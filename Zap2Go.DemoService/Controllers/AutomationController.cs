@@ -11,6 +11,6 @@ namespace Zap2Go.DemoService.Controllers
     [Route("[controller]")]
     public class AutomationController : ControllerBase
     {
-       
+       //para o método de automação chamado responder situações de automação.
     }
 }
