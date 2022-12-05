@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Http.Api.Automation
 {
-    class BaseAutomationResponse
+    public class BaseAutomationResponse
     {
-        //ações: enviar_msg, variaveis para setar, gravar log, finalizar, transferir para operacao, disparar alerta, mudar step, agendar renitencia.
-
+        //actrions: enviar_msg, variaveis para setar, gravar log, finalizar, transferir para operacao, disparar alerta, mudar step, agendar renitencia.
+        public string StepToChange { get; set; }
+        public Dictionary<string,object> Variables { get; set; }
         public Biz.Automation.BaseAction[] Actions { get; set; }
     }
 }

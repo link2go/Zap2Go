@@ -7,9 +7,14 @@ using Zap2Go.Types.Http.Api.Automation;
 
 namespace Zap2Go.Types.Biz.Automation
 {
-    public abstract class BaseAction
+    public class ActionExecAutomation : BaseAction
     {
-        internal abstract string TypeName();
-        public string Type { get { return TypeName(); } }
+        public string Code { get; set; }
+
+        internal override string TypeName()
+        {
+            return "EXECAUTOMATION";
+        }
+
     }
 }

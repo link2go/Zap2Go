@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Automation
 {
-    public class ActionSendMessage : BaseAction
+    public class ActionServiceFinish : BaseAction
     {
-        public string Text { get; set; }
 
-        public string File { get; set; }
+        public string ReasonCode { get; set; }
+
+        public string Notes { get; set; }
 
         internal override string TypeName()
         {
-            return "SENDMESSAGE";
+            return "SERVICEFINISH";
         }
+
     }
 }
