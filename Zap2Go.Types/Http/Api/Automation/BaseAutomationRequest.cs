@@ -11,7 +11,6 @@ namespace Zap2Go.Types.Http.Api.Automation
     {
         //parâmetros: carteira, dados do cliente, mensagem recebida, renitencia ocorrida, protocolo, step atual, historico recente.
         public string Trigger { get; set; } //MESSAGE, SERVICEFINISHED, renitencia
-
         public int WalletId { get; set; }
         public MESSAGE ReceivedMessage { get; set; }
         public Dictionary<string, object> Variables { get; set; }

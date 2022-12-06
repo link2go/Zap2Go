@@ -20,7 +20,6 @@ namespace Zap2Go.DemoService.Controllers
     public class AutomationController : ControllerBase
     {
         //para o método de automação chamado responder situações de automação.
-
         [HttpPost()]
         [Route("PostAutomation")]
         [AllowAnonymous]

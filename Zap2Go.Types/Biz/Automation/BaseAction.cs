@@ -11,5 +11,6 @@ namespace Zap2Go.Types.Biz.Automation
     {
         internal abstract string TypeName();
         public string Type { get { return TypeName(); } }
+
     }
 }

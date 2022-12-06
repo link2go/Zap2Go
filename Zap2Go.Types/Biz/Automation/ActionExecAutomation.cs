@@ -15,6 +15,5 @@ namespace Zap2Go.Types.Biz.Automation
         {
             return "EXECAUTOMATION";
         }
-
     }
 }

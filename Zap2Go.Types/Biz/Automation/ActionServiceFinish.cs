@@ -8,11 +8,8 @@ namespace Zap2Go.Types.Biz.Automation
 {
     public class ActionServiceFinish : BaseAction
     {
-
         public string ReasonCode { get; set; }
-
         public string Notes { get; set; }
-
         internal override string TypeName()
         {
             return "SERVICEFINISH";
