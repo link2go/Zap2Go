@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zap2Go.Types.Biz.Automation.Actions;
 
 namespace Zap2Go.Types.Http.Api.Automation
 {
-    class BaseAutomationResponse
+    public class BaseAutomationResponse
     {
-        //ações: enviar_msg, variaveis para setar, gravar log, finalizar, transferir para operacao, disparar alerta, mudar step, agendar renitencia.
+        public string Protocol { get; set; }
 
-        public Biz.Automation.BaseAction[] Actions { get; set; }
+        public List<BaseAction> Actions { get; set; } = new List<BaseAction>();
     }
 }
