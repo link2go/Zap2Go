@@ -11,7 +11,7 @@ namespace Zap2Go.Types.Biz.Automation.Actions
 
         public string NextStep { get; set; }
 
-        public Dictionary<string, object> Tags { get; set; } 
+        public Dictionary<string, object> Tags { get; set; }
 
         public SetStep(Dictionary<string, object> baseTags)
         {
@@ -22,7 +22,6 @@ namespace Zap2Go.Types.Biz.Automation.Actions
         {
             Tags[key] = value;
         }
-
 
         //Retorna o proximo step setado
         public static SetStep SetNextStep(string step, Dictionary<string, object> basetags = null)
@@ -39,5 +38,12 @@ namespace Zap2Go.Types.Biz.Automation.Actions
             return ret;
         }
 
+
+        internal override dynamic GetAction()
+        {
+            return new { NextStep = NextStep, Tags = Tags, Name = this.GetType().Name };
+        }
+
+        public string Name { get; set; }
     }
 }
