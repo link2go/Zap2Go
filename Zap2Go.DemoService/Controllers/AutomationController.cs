@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Zap2Go.Types.Biz.Automation;
 using Zap2Go.Types.Biz.Automation.Actions;
 using Zap2Go.Types.Http.Api.Automation;
+using Zap2Go.Types.Utils;
 
 namespace Zap2Go.DemoService.Controllers
 {
@@ -21,6 +22,9 @@ namespace Zap2Go.DemoService.Controllers
         [AllowAnonymous]
         public ActionResult<BaseAutomationResponse> AutoDemo([FromBody] BaseAutomationRequest auto)
         {
+            //conversao de value json generico para especifico
+            auto.Variables.FixValueWithJsonElement(true);
+
             var resp = new BaseAutomationResponse();
             var newvars = new SetVariables(auto.Variables);
             var messages = new SendMessage();
