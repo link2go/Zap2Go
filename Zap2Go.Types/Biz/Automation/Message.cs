@@ -12,9 +12,11 @@ namespace Zap2Go.Types.Biz.Automation
 
         public enumMessageType Type { get; set; }
         public string Text { get; set; }
+        public string ContentId { get; set; }
         public string FileContent { get; set; }
         public string FileName { get; set; }
         public ButtonOption[] Buttons { get; set; }
+        public OptionsLits[] Options { get; set; }
 
         public DateTime? ScheduleFor { get; set; }
     }
@@ -23,6 +25,12 @@ namespace Zap2Go.Types.Biz.Automation
     {
         public string Id { get; set; }
         public string Label { get; set; }
+    }
+    public class OptionsLits
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+        public string Title { get; set; }
 
     }
 }

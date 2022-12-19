@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using Zap2Go.Types.Biz.Automation;
 using Zap2Go.Types.Biz.Automation.Actions;
@@ -26,9 +28,8 @@ namespace Zap2Go.DemoService.Controllers
             auto.Variables.FixValueWithJsonElement(true);
 
             var resp = new BaseAutomationResponse();
-            var newvars = new SetVariables(auto.Variables);
             var messages = new SendMessage();
-
+            resp.Protocol = auto.Protocol;
 
             if (auto?.ReceivedMessage?.Text == "/RESET")
             {
@@ -36,40 +37,50 @@ namespace Zap2Go.DemoService.Controllers
                 return Ok(resp);
             }
 
-
             switch (auto.CurrentStep)
             {
                 case "START":
-                    messages.SendText("Conheça nosso cardápio");
-                    //...
-
-                    resp.Actions.Add(SetStep.SetNextStep("PIZZA"));
+                    messages.SendTextAndButtons("Hola! Me estoy comunicando de {$.ips}. *Te estoy recordando una cita* para {$.nombre} de {$.tipo_cita} para {$.fecha_cita} a las {$.hora_cita}. Quieres CONFIRMAR o CANCELAR esta cita?",
+                        new ButtonOption[] { new ButtonOption { Id = "START_01", Label = "CONFIRMO CITA!" }, new ButtonOption { Id = "START_02", Label = "CANCELAR CITA" }, new ButtonOption { Id = "START_03", Label = "NO SOY YO" } });
+                    resp.Actions.Add(SetStep.SetNextStep("SECOND"));
                     break;
 
-                case "PIZZA":
-                    //...
-
-                    resp.Actions.Add(SetStep.SetNextStep("BEBIDA"));
+                case "SECOND":
+                    switch (auto.ReceivedMessage.Text)
+                    {
+                        case "START_01":
+                            messages.SendText("Perfecto, muchas gracias!  Recuerda que al ser una cita *PRESENCIAL* debes llegar 20 minutos antes con la documentación del paciente. Si necesitas cancelar tu cita puedes llamar 24x7 al teléfono (604) 444 4080. Muchas gracias y [BuenosDiasSalida]");
+                            resp.Actions.Add(SetStep.SetNextStep("END"));
+                            break;
+                        case "START_02":
+                            messages.SendText("Entiendo, muchas gracias. Tu cita ha sido cancelada. Recuerda que si deseas reagendar, lo puedes hacer a través de nuestro teléfono: (604) 444 4080.  Muchas gracias!");
+                            resp.Actions.Add(SetStep.SetNextStep("END"));
+                            break;
+                        case "START_03":
+                            messages.SendText("Disculpa la molestia. Muchas gracias que tengas un feliz día!");
+                            resp.Actions.Add(SetStep.SetNextStep("NO_SOY_YO"));
+                            break;
+                        default:
+                            messages.SendTextAndButtons("Hola! Me estoy comunicando de {$.ips}. *Te estoy recordando una cita* para {$.nombre} de {$.tipo_cita} para  {$.fecha_cita} a las {$.hora_cita}. Quieres CONFIRMAR o CANCELAR esta cita?",
+                            new ButtonOption[] { new ButtonOption { Id = "START_01", Label = "CONFIRMO CITA!" }, new ButtonOption { Id = "START_02", Label = "CANCELAR CITA" }, new ButtonOption { Id = "START_03", Label = "NO SOY YO" } });
+                            resp.Actions.Add(SetStep.SetNextStep("SECOND"));
+                            break;
+                    }
                     break;
 
-                case "BEBIDA":
-
-                    resp.Actions.Add(SetStep.SetNextStep("DESCONTO"));
-                    break;
-
-                case "DESCONTO":
-
-                    resp.Actions.Add(SetStep.SetNextStep("END"));
+                case "END":
+                    messages.SendTextAndButtons("Hola! Me estoy comunicando de {$.ips}. *Te estoy recordando una cita* para {$.nombre} de {$.tipo_cita} para  {$.fecha_cita} a las {$.hora_cita}. Quieres CONFIRMAR o CANCELAR esta cita?",
+                    new ButtonOption[] { new ButtonOption { Id = "START_01", Label = "CONFIRMO CITA!" }, new ButtonOption { Id = "START_02", Label = "CANCELAR CITA" }, new ButtonOption { Id = "START_03", Label = "NO SOY YO" } });
+                    resp.Actions.Add(SetStep.SetNextStep("SECOND"));
                     break;
 
             }
 
-
-            resp.Actions.Add(newvars);
             resp.Actions.Add(messages);
 
             return Ok(resp);
 
         }
+        
     }
 }

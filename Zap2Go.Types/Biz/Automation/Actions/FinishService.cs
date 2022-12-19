@@ -18,5 +18,10 @@ namespace Zap2Go.Types.Biz.Automation.Actions
                 HoursIntervalNextAutomaticService = 0
             };
         }
+        internal override dynamic GetAction()
+        {
+            return new { ReasonCode, HoursIntervalNextAutomaticService, Name = this.GetType().Name };
+        }
+        public string Name { get; set; }
     }
 }
