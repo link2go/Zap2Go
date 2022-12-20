@@ -11,10 +11,9 @@ namespace Zap2Go.Types.Biz.Automation.Actions
         public int? NewWalletId { get; set; }
         public string SpecialistCode { get; set; }
 
-        internal override dynamic GetAction()
+        internal override string TypeName()
         {
-            return new { NewWalletId, SpecialistCode, Name = this.GetType().Name };
+            return this.GetType().Name;
         }
-        public string Name { get; set; }
     }
 }

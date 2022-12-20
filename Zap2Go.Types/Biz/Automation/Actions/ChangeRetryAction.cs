@@ -10,10 +10,9 @@ namespace Zap2Go.Types.Biz.Automation.Actions
     {
         public bool CancelPrevious { get; set; }
 
-        internal override dynamic GetAction()
+        internal override string TypeName()
         {
-            return new { CancelPrevious = CancelPrevious, Name = this.GetType().Name };
+            return this.GetType().Name;
         }
-        public string Name { get; set; }
     }
 }

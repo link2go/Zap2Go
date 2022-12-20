@@ -12,10 +12,9 @@ namespace Zap2Go.Types.Biz.Automation
     {
         public string Code { get; set; }
 
-        internal override dynamic GetAction()
+        internal override string TypeName()
         {
-            return new { Code };
+            return this.GetType().Name;
         }
-        public string Name { get; set; }
     }
 }

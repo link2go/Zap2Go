@@ -11,6 +11,6 @@ namespace Zap2Go.Types.Http.Api.Automation
     {
         public string Protocol { get; set; }
 
-        public List<BaseAction> Actions { get; set; } = new List<BaseAction>();
+        public Object[] Actions { get; set; }
     }
 }

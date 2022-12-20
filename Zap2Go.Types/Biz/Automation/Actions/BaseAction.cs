@@ -9,7 +9,7 @@ namespace Zap2Go.Types.Biz.Automation.Actions
 {
     public abstract class BaseAction
     {
-        internal abstract dynamic GetAction();
-        public dynamic Action { get { return GetAction(); } }
+        internal abstract string TypeName();
+        public string Type { get { return TypeName(); } }
     }
 }

@@ -36,11 +36,10 @@ namespace Zap2Go.Types.Biz.Automation.Actions
                 Type = Message.enumMessageType.OPTIONLIST
             });
         }
-        internal override dynamic GetAction()
-        {
-            return new { Messages, Name = this.GetType().Name };
-        }
 
-        public string Name { get; set; }
+        internal override string TypeName()
+        {
+            return this.GetType().Name;
+        }
     }
 }

@@ -24,9 +24,9 @@ namespace Zap2Go.Types.Biz.Automation.Actions
             NewValues[key] = value;
         }
         public string Name { get; set; }
-        internal override dynamic GetAction()
+        internal override string TypeName()
         {
-            return new { NewValues, PreserveOriginal, Name = this.GetType().Name };
+            return this.GetType().Name;
         }
     }
 }

@@ -13,10 +13,9 @@ namespace Zap2Go.Types.Biz.Automation
         public string UserCodeTo { get; set; }
         public int? WalletId { get; set; }
 
-        internal override dynamic GetAction()
+        internal override string TypeName()
         {
-            return new { UserCodeTo, WalletId, UserQueueTransfer, Name = this.GetType().Name };
+            return this.GetType().Name;
         }
-        public string Name { get; set; }
     }
 }
