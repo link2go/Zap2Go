@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,30 +10,59 @@ namespace Zap2Go.Types.Biz.Connector
     public class SendMessageRequest
     {
 
-        public string messageType { get; set; }
-        public string source { get; set; }
-        public string message { get; set; }
-        public string subject { get; set; }
-        public string address { get; set; }
-        public string name { get; set; }
-        public object variables { get; set; }
-        public Options options { get; set; }
-        public string file { get; set; }
-        public string fileName { get; set; }
-        public string replyMessageId { get; set; }
-        public int delayTyping { get; set; }
-        public string expires { get; set; }
-        public string template { get; set; }
+        [JsonProperty("messageType")]
+        public string MessageType { get; set; }
+
+        [JsonProperty("source")]
+        public string Source { get; set; }
+
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("subject")]
+        public string? Subject { get; set; }
+
+        [JsonProperty("caption")]
+        public string? Caption { get; set; }
+
+        [JsonProperty("address")]
+        public string Address { get; set; }
+
+        [JsonProperty("name")]
+        public string? Name { get; set; }
+
+        [JsonProperty("variables")]
+        public string? Variables { get; set; }
+
+        [JsonProperty("options")]
+        public string? Options { get; set; }
+
+        [JsonProperty("file")]
+        public string? File { get; set; }
+
+        [JsonProperty("fileName")]
+        public string? FileName { get; set; }
+
+        [JsonProperty("replyMessageId")]
+        public string? ReplyMessageId { get; set; }
+
+        [JsonProperty("delayTyping")]
+        public int? DelayTyping { get; set; }
+
+        [JsonProperty("expires")]
+        public DateTime? Expires { get; set; }
+
+        [JsonProperty("template")]
+        public string? Template { get; set; }
+
+        [JsonProperty("contact")]
         public string Contact { get; set; }
-        public string instanceKey { get; set; }
-        public string instanceSecret { get; set; }
-    }
 
- 
+        [JsonProperty("instanceKey")]
+        public string? InstanceKey { get; set; }
 
-    public class Options
-    {
-        
-    }
+        [JsonProperty("instanceSecret")]
+        public string? InstanceSecret { get; set; }
+    } 
 
 }

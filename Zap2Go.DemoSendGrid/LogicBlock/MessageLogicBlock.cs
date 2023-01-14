@@ -1,9 +1,9 @@
 ﻿using Zap2Go.DemoSendGrid.LogicBlock.Interface;
-using Zap2Go.Types.Http.Api.SendMessage;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Text.RegularExpressions;
 using System.Net;
+using Zap2Go.Types.Biz.Connector;
 
 namespace Zap2Go.DemoSendGrid.LogicBlock
 {
@@ -24,11 +24,11 @@ namespace Zap2Go.DemoSendGrid.LogicBlock
         /// <summary>
         /// Handles and sends the message and formats a standard return
         /// </summary>
-        /// <param name="request">ActiveRequest</param>
-        /// <returns>ActiveResponse</returns>
-        public async Task<ActiveResponse> ReceiveMessage(ActiveRequest request)
+        /// <param name="request">SendMessageRequest</param>
+        /// <returns>SendMessageResponse</returns>
+        public async Task<SendMessageResponse> ReceiveMessage(SendMessageRequest request)
         {
-            ActiveResponse result = new ActiveResponse();
+            SendMessageResponse result = new SendMessageResponse();
             result.Sent = false;
             result.Message = _config.GetValue<string>("Message:Error");
 
