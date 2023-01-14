@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Webhook
 {
-    public class ProxyConnectorWebhook
+    public class PROXYCONNECTORWEBHOOK
     {
         public enum EnumEventType
         {
@@ -84,7 +84,15 @@ namespace Zap2Go.Types.Biz.Webhook
 
     public class ProxyWebhookInstance
     {
-        public enum EnumInstanceEventType { CONNECTED = 1, DISCONNECTED = 2, CREATED = 3, EXCLUDED = 4, READY = 5, UNDEFINED = 99 }
+        public enum EnumInstanceEventType 
+        { 
+            CONNECTED = 1,      //instancia foi conectada / está conectada
+            DISCONNECTED = 2,   //instancia foi desconectada / está desconectada
+            CREATED = 3,        //instancia foi criada
+            EXCLUDED = 4,       //instancia foi excluida
+            READY = 5,          //instancia está pronta (informar o qrcode base 64 no content)
+            UNDEFINED = 99      //usar quando não for evento de instancia
+        }
         public EnumInstanceEventType eventType { get; set; } = EnumInstanceEventType.UNDEFINED;
         public string key { get; set; }             //id da instancia
         public string content { get; set; }         //incluira o QRCODE ou o número de telefone, se aplicável
