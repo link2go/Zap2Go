@@ -11,7 +11,7 @@ namespace Zap2Go.DemoConnector.Controllers
     [Route("[controller]")]
     public class ConnectorController : ControllerBase
     {
-        [HttpGet()]
+        [HttpPost()]
         [Route("InstanceCreate")]
         public async Task<ActionResult<object>> InstanceCreate(Types.Biz.Connector.InstanceCreateRequest request)
         {
@@ -19,7 +19,7 @@ namespace Zap2Go.DemoConnector.Controllers
         }
 
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("InstanceRestart")]
         public async Task<ActionResult<object>> InstanceRestart(Types.Biz.Connector.InstanceRestartRequest request)
         {
@@ -27,7 +27,7 @@ namespace Zap2Go.DemoConnector.Controllers
             return Ok();
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("InstanceCancel")]
         public async Task<ActionResult<object>> InstanceCancel(Types.Biz.Connector.InstanceCancelRequest request)
         {
@@ -35,9 +35,9 @@ namespace Zap2Go.DemoConnector.Controllers
             return Ok();
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("SendMessage")]
-        public async Task<ActionResult<object>> SendMessage(Types.Biz.Connector.SendMessageRequest request)
+        public async Task<ActionResult<object>> SendMessage([FromBody] Types.Biz.Connector.SendMessageRequest request)
         {
 
 
