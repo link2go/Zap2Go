@@ -1,0 +1,20 @@
+{
+  "messageType": "text",
+  "source": "Chat",
+  "message": "PROD - Envio de botão, texto simples, Envio de botão, texto simples, Envio de botão, texto simples,",
+  "subject": "",
+  "caption": "",
+  "address": "5519992770373",
+  "name": "tiago",
+  "variables": "",
+  "options": " {\"buttons\": [ { \"id\": \"BOTAO_CAMPANHA_OK\", \"label\": \"OK\" }, \r\n                                               { \"id\": \"BOTAO_CAMPANHA_BLOQUEAR\", \"label\": \"BLOQUEAR\" }, \r\n\t\t\t\t\t\t\t\t               { \"id\": \"BOTAO_CAMPANHA_DENUNCIAR\", \"label\": \"DENUNCIAR\" } \r\n\t\t\t\t\t\t\t\t\t\t\t ]}",
+  "file": "",
+  "fileName": "",
+  "replyMessageId": "0",
+  "delayTyping": null,
+  "expires": null,
+  "template": "",
+  "contact": "5521986118784",
+  "instanceKey": "226",
+  "instanceSecret": "8643"
+}

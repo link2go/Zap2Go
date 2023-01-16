@@ -12,4 +12,8 @@
     <ProjectReference Include="..\Zap2Go.Types\Zap2Go.Types.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="etc\SendMessageExamples\" />
+  </ItemGroup>
+
 </Project>
