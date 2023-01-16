@@ -1,0 +1,20 @@
+{
+  "messageType": "buttons",
+  "source": "Bot",
+  "message": "https://i.discogs.com/513pWGa70fhWMULVo5AFTaMGE8Mbvpd0CO_WnXjvqJ0/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE0MDAz/MTctMTMzNTcxNzQ3/Ni5wbmc.jpeg",
+  "subject": "",
+  "caption": "Envio de botão, com imagem, Envio de botão, com imagem,Envio de botão, com imagem,Envio de botão, com imagem",
+  "address": "5519992770373",
+  "name": "tiago",
+  "variables": "",
+  "options": " {\"buttons\": [ { \"id\": \"BOTAO_CAMPANHA_OK\", \"label\": \"OK\" }, \r\n                                               { \"id\": \"BOTAO_CAMPANHA_BLOQUEAR\", \"label\": \"BLOQUEAR\" }, \r\n\t\t\t\t\t\t\t\t               { \"id\": \"BOTAO_CAMPANHA_DENUNCIAR\", \"label\": \"DENUNCIAR\" } \r\n\t\t\t\t\t\t\t\t\t\t\t ]}",
+  "file": "https://i.discogs.com/513pWGa70fhWMULVo5AFTaMGE8Mbvpd0CO_WnXjvqJ0/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE0MDAz/MTctMTMzNTcxNzQ3/Ni5wbmc.jpeg",
+  "fileName": "hommer.jpeg",
+  "replyMessageId": "0",
+  "delayTyping": null,
+  "expires": null,
+  "template": "",
+  "contact": "5521986118784",
+  "instanceKey": "226",
+  "instanceSecret": "8643"
+}
