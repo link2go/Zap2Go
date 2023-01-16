@@ -10,9 +10,9 @@ namespace Zap2Go.Types.Biz.Webhook
     {
         public enum EnumEventType
         {
-            MESSAGE = 1,        //usar para mensagem recebida e eventos de envio, entrega, leitura. Sempre informar instance e cliente tb
+            MESSAGE = 1,        //usar para mensagem recebida e eventos de envio, entrega, leitura, etc. Sempre informar "instance" e "cliente"
             INSTANCE = 2,       //usar para eventos de conexao/desconexao/envio do qr code
-            CLIENT = 3,         //nao usável em WA
+            CLIENT = 3,         
             UNDEFINED = 99      //nao usar
         }
         public enum EnumEventDirectionType { FROMME = 1, FROMCLIENT = 2 }   //FROMCLIENT: quando é mensagem recebida. FROMME - todos os outros casos
