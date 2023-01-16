@@ -1,0 +1,20 @@
+{
+  "messageType": "file",
+  "source": "Bot",
+  "message": "https://whatsgw.com.br/apps/files/api-content/teste.pdf",
+  "subject": "",
+  "caption": "Envio de mensagem do tipo arquivo",
+  "address": "5519992770373",
+  "name": "tiago",
+  "variables": "",
+  "options": "",
+  "file": "https://whatsgw.com.br/apps/files/api-content/teste.pdf",
+  "fileName": "teste.pdf",
+  "replyMessageId": "0",
+  "delayTyping": null,
+  "expires": null,
+  "template": "",
+  "contact": "5521986118784",
+  "instanceKey": "226",
+  "instanceSecret": "8643"
+}
