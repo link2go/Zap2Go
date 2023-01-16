@@ -15,6 +15,8 @@ namespace Zap2Go.DemoConnector.Controllers
         [Route("InstanceCreate")]
         public async Task<ActionResult<object>> InstanceCreate(Types.Biz.Connector.InstanceCreateRequest request)
         {
+            //objetivo: criar uma nova instância para execução
+
             return Ok(new Types.Biz.Connector.InstanceCreateResponse());
         }
 
@@ -23,6 +25,7 @@ namespace Zap2Go.DemoConnector.Controllers
         [Route("InstanceRestart")]
         public async Task<ActionResult<object>> InstanceRestart(Types.Biz.Connector.InstanceRestartRequest request)
         {
+            //objetivo: reiniciar a execução da instância
 
             return Ok();
         }
@@ -31,9 +34,19 @@ namespace Zap2Go.DemoConnector.Controllers
         [Route("InstanceCancel")]
         public async Task<ActionResult<object>> InstanceCancel(Types.Biz.Connector.InstanceCancelRequest request)
         {
+            //objetivo: cancelar/excluir instância
 
             return Ok();
         }
+
+        [HttpPost()]
+        [Route("InstanceSetProfile")]
+        public async Task<ActionResult<object>> InstanceSetProfile(Types.Biz.Connector.InstanceSetProfileRequest request)
+        {
+            //objetivo: setar os dados de perfil da instância
+            return Ok();
+        }
+
 
         [HttpPost()]
         [Route("SendMessage")]
