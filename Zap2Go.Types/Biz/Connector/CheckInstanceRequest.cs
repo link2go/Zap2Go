@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Connector
 {
-    public class InstanceRestartRequest
+    public class CheckInstanceRequest
     {
         public string id { get; set; }
         public string token { get; set; }
         public string password { get; set; }
+
     }
 }
