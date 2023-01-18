@@ -1,0 +1,31 @@
+{
+  "supplier": "XPTO",
+  "instance": {
+    "eventType": 99,
+    "key": "556195113878",
+    "content": null
+  },
+  "eventType": 1,
+  "eventDirectionType": 1,
+  "moment": "2023-01-16T18:00:43.3790323-03:00",
+  "client": {
+    "eventType": 99,
+    "address": "5518997581901",
+    "name": "",
+    "photo": null,
+    "profile": null
+  },
+  "message": {
+    "eventType": 1,
+    "messageType": 99,
+    "id": "151550134",
+    "subject": null,
+    "message": null,
+    "file": null,
+    "fileName": null,
+    "option": null,
+    "refId": null,
+    "reaction": null
+  },
+  "error": null
+}

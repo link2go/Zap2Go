@@ -1,0 +1,14 @@
+{
+  "supplier": "XPTO",
+  "instance": {
+    "eventType": 1,
+    "key": "8810",
+    "content": "5521988365704"
+  },
+  "eventType": 2,
+  "eventDirectionType": 1,
+  "moment": "2023-01-17T19:30:24.7613033-03:00",
+  "client": null,
+  "message": null,
+  "error": null
+}
