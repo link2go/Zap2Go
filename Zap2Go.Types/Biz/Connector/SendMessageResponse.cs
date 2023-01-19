@@ -17,5 +17,8 @@ namespace Zap2Go.Types.Biz.Connector
 
         [JsonProperty("message")]
         public string Message { get; set; }
+
+        [JsonProperty("clientInstanceId")]
+        public string ClientInstanceId { get; set; }
     }
 }
