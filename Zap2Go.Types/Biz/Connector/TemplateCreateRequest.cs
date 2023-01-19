@@ -10,7 +10,6 @@ namespace Zap2Go.Types.Biz.Connector
     {
         public string ownerid { get; set; }
         public string name { get; set; }
-
         public SendMessageRequest template { get; set; }
     }
 }

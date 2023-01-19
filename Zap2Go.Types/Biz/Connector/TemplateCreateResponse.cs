@@ -8,7 +8,9 @@ namespace Zap2Go.Types.Biz.Connector
 {
     public class TemplateCreateResponse
     {
-        public string id { get; set; }
-        public string token { get; set; }
+       
+        public bool success { get; set; }
+        public string message { get; set; }
+        public string templatename { get; set; }
     }
 }

@@ -8,10 +8,9 @@ namespace Zap2Go.Types.Biz.Connector
 {
     public class InstanceCreateResponse
     {
-        public string ownerid { get; set; }
-        public bool success { get; set; }
-        public string message { get; set; }
-        public string templatename { get; set; }
+        public string id { get; set; }
+        public string token { get; set; }
+
     }
 
 
