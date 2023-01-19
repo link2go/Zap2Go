@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Connector
 {
-    public class InstanceCreateRequest
+    public class TemplateCreateRequest
     {
         public string ownerid { get; set; }
         public string name { get; set; }
-        public string password { get; set; }
-        public bool test { get; set; }
+
+        public SendMessageRequest template { get; set; }
     }
 }

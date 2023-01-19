@@ -12,7 +12,8 @@ namespace Zap2Go.Types.Biz.Webhook
         {
             MESSAGE = 1,        //usar para mensagem recebida e eventos de envio, entrega, leitura, etc. Sempre informar "instance" e "cliente"
             INSTANCE = 2,       //usar para eventos de conexao/desconexao/envio do qr code
-            CLIENT = 3,         
+            CLIENT = 3,    
+            TEMPLATE = 4,
             UNDEFINED = 99      //nao usar
         }
         public enum EnumEventDirectionType { FROMME = 1, FROMCLIENT = 2 }   //FROMCLIENT: quando é mensagem recebida. FROMME - todos os outros casos
@@ -31,7 +32,9 @@ namespace Zap2Go.Types.Biz.Webhook
 
         public ProxyWebhookError error { get; set; }
 
-      
+        public ProxyWebhookTemplate template { get; set; }
+
+        public string transactionid { get; set; }
 
     }
 
@@ -57,6 +60,8 @@ namespace Zap2Go.Types.Biz.Webhook
 
 
     }
+
+
 
     public class ProxyWebhookMessage
     {
@@ -91,11 +96,22 @@ namespace Zap2Go.Types.Biz.Webhook
             CREATED = 3,        //instancia foi criada
             EXCLUDED = 4,       //instancia foi excluida
             READY = 5,          //instancia está pronta (informar o qrcode base 64 no content)
+            BLOCKED = 6,
             UNDEFINED = 99      //usar quando não for evento de instancia
         }
         public EnumInstanceEventType eventType { get; set; } = EnumInstanceEventType.UNDEFINED;
         public string key { get; set; }             //id da instancia
         public string content { get; set; }         //incluira o QRCODE ou o número de telefone, se aplicável
+
+    }
+
+    public class ProxyWebhookTemplate
+    {
+        public enum EnumTemplateEventType { NEW = 1, PROCESSING = 2, APPROVED = 3, REJECTED = 4, CANCELLED = 5, UNDEFINED = 99 }
+        public EnumTemplateEventType eventType { get; set; } = EnumTemplateEventType.UNDEFINED;
+
+        public string name { get; set; }         
+        public string log { get; set; }
 
     }
 }

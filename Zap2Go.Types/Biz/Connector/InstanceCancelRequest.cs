@@ -8,6 +8,7 @@ namespace Zap2Go.Types.Biz.Connector
 {
     public class InstanceCancelRequest
     {
+
         public string id { get; set; }
         public string token { get; set; }
         public string password { get; set; }

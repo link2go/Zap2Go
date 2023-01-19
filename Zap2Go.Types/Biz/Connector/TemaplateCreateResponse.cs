@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Connector
 {
-    public class InstanceRestartRequest
+    public class TemaplateCreateResponse
     {
-
         public string id { get; set; }
         public string token { get; set; }
-        public string password { get; set; }
     }
 }
