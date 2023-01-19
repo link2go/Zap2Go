@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Connector
 {
-    public class TemaplateCreateResponse
+    public class TemplateCreateResponse
     {
         public string id { get; set; }
         public string token { get; set; }

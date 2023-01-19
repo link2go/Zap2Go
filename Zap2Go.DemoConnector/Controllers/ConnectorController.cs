@@ -61,6 +61,12 @@ namespace Zap2Go.DemoConnector.Controllers
             return Ok(new Types.Biz.Connector.SendMessageResponse());
         }
 
+        [HttpPost()]
+        [Route("TemplateCreate")]
+        public async Task<ActionResult<Types.Biz.Connector.TemplateCreateResponse>> TemplateCreate([FromBody] Types.Biz.Connector.TemplateCreateRequest request)
+        {
+            return Ok(new Types.Biz.Connector.TemplateCreateResponse());
+        }
 
     }
 }
