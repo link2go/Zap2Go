@@ -53,14 +53,12 @@ namespace Zap2Go.Types.Biz.Webhook
         public EnumClientEventType eventType { get; set; } = EnumClientEventType.UNDEFINED;
 
 
-        public string address { get; set; }     //telefone do cliente (obrigatório)
+        public string address { get; set; }     //identificacao publica do cliente - telefone ou e-mail (obrigatório)
         public string name { get; set; }
         public string photo { get; set; }
         public string profile { get; set; }
-
-
+        public string instanceid { get; set; }
     }
-
 
 
     public class ProxyWebhookMessage

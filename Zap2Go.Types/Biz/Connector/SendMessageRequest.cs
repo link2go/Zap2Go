@@ -57,6 +57,9 @@ namespace Zap2Go.Types.Biz.Connector
 
         [JsonProperty("contact")]
         public string Contact { get; set; }
+        
+        [JsonProperty("clientInstanceId")]
+        public string ClientInstanceId { get; set; }
 
         [JsonProperty("instanceKey")]
         public string? InstanceKey { get; set; }
