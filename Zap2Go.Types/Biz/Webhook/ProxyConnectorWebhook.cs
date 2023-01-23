@@ -49,7 +49,7 @@ namespace Zap2Go.Types.Biz.Webhook
 
     public class ProxyWebhookClient
     {
-        public enum EnumClientEventType { NEW = 1, ERROR = 2, PRESENT = 3, ABSENT = 4, BLACKLISTED = 5, UNDEFINED = 99 }
+        public enum EnumClientEventType { NEW = 1, ERROR = 2, PRESENT = 3, ABSENT = 4, BLACKLISTED = 5, NOTEXISTS = 6, UNDEFINED = 99 }
         public EnumClientEventType eventType { get; set; } = EnumClientEventType.UNDEFINED;
 
 
