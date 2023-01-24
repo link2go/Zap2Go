@@ -48,7 +48,7 @@ namespace Zap2Go.DemoConnector.Controllers
         }
         [HttpPost()]
         [Route("CheckAddress")]
-        public async Task<ActionResult<Types.Biz.Connector.CheckAddressResponse>> CheckAddress([FromBody] Types.Biz.Connector.CheckAddressRequest request)
+        public async Task<ActionResult<Types.Biz.Connector.CheckAddressResponse[]>> CheckAddress([FromBody] Types.Biz.Connector.CheckAddressRequest request)
         {
             return Ok(new Types.Biz.Connector.CheckAddressResponse[] { }); //retorna um array com o tratamento de cada address do array de address
         }
