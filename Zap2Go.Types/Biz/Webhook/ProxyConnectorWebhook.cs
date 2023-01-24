@@ -110,6 +110,8 @@ namespace Zap2Go.Types.Biz.Webhook
 
         public string name { get; set; }         
         public string log { get; set; }
+        public string language { get; set; }
+
 
     }
 }

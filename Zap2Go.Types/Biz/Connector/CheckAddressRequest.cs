@@ -12,6 +12,6 @@ namespace Zap2Go.Types.Biz.Connector
         public string token { get; set; }
         public string password { get; set; }
 
-        public string address { get; set; }
+        public string[] address { get; set; } // array com um ou mais endereços para serem checados
     }
 }
