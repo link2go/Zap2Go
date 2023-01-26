@@ -17,6 +17,7 @@ namespace Zap2Go.Types.Biz.Connector
 
         public string statusMessage { get; set; }
 
+        public object ExtendedProperties { get; set; }
     }
 
 
