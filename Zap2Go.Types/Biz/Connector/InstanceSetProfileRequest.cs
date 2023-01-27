@@ -9,6 +9,7 @@ namespace Zap2Go.Types.Biz.Connector
     public class InstanceSetProfileRequest
     {
         public string id { get; set; }
+        public string token { get; set; }
         public string password { get; set; }
         public string name { get; set; }
         public string description { get; set; }
