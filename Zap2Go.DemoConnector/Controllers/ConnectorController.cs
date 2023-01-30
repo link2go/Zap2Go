@@ -68,5 +68,12 @@ namespace Zap2Go.DemoConnector.Controllers
             return Ok(new Types.Biz.Connector.TemplateCreateResponse());
         }
 
+        [HttpPost()]
+        [Route("InstanceAuth")]
+        public async Task<ActionResult<Types.Biz.Connector.InstanceAuthResponse>> InstanceAuth([FromBody] Types.Biz.Connector.InstanceAuthRequest request)
+        {
+            return Ok(new Types.Biz.Connector.InstanceAuthResponse());
+        }
+
     }
 }
