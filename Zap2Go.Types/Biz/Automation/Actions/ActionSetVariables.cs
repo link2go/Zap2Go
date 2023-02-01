@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Automation.Actions
 {
-    public class SetVariables : BaseAction
+    public class ActionSetVariables : BaseAction
     {
         public Dictionary<string, object> NewValues { get; set; } 
         public bool PreserveOriginal { get; set; }
 
-        public SetVariables(Dictionary<string, object> baseDic)
+        public ActionSetVariables(Dictionary<string, object> baseDic)
         {
             NewValues = (baseDic ?? new Dictionary<string, object>());
         }
@@ -23,7 +23,6 @@ namespace Zap2Go.Types.Biz.Automation.Actions
 
             NewValues[key] = value;
         }
-        public string Name { get; set; }
         internal override string TypeName()
         {
             return this.GetType().Name;

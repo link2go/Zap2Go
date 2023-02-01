@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Automation.Actions
 {
-    public class RegisterLog : BaseAction
+    public class ActionAddToBlacklist : BaseAction
     {
-        public string LogInfo { get; set; }
+        public bool ToAllWalletDevices { get; set; } = true;
+        public int TimeoutDays { get; set; }
 
         internal override string TypeName()
         {

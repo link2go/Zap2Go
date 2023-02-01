@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Automation.Actions
 {
-    public class Resubmit
+    public class ActionResubmit
     {
         public int IntervalMinutes { get; set; }
         public bool CancelOnNewMessage { get; set; }
