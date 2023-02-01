@@ -14,6 +14,7 @@ namespace Zap2Go.Types.Biz.Webhook
         public string PHONENUMBER { get; set; }
         public int CLIENTID { get; set; }
         public string EXTERNALID { get; set; }
+        public string CLIENTDOCUMENT { get; set; }
         public DateTime STARTDATE { get; set; }
         public DateTime? ENDDATE { get; set; }
         public string PROTOCOL { get; set; }

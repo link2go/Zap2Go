@@ -1,0 +1,20 @@
+{
+  "messageType": "file",
+  "source": "Bot",
+  "message": "https://storage/teste.pdf",
+  "subject": null,
+  "caption": "Envio de mensagem do tipo arquivo",
+  "address": "551999999999",
+  "name": "tiago",
+  "variables": null,
+  "options": null,
+  "file": "https://storage/teste.pdf",
+  "fileName": "teste.pdf",
+  "replyMessageId": null,
+  "delayTyping": null,
+  "expires": null,
+  "template": null,
+  "contact": "551999999999",
+  "instanceKey": "226",
+  "instanceSecret": "8643"
+}

@@ -1,0 +1,31 @@
+{
+  "supplier": "XPTO",
+  "instance": {
+    "eventType": 99,
+    "key": "5521986118784",
+    "content": null
+  },
+  "eventType": 1,
+  "eventDirectionType": 2,
+  "moment": "2023-01-16T18:01:45-03:00",
+  "client": {
+    "eventType": 99,
+    "address": "5519993051971",
+    "name": "Oliveira",
+    "photo": null,
+    "profile": null
+  },
+  "message": {
+    "eventType": 1,
+    "messageType": 0,
+    "id": "151551245",
+    "subject": null,
+    "message": "😀 Olá! No momento estou  impossibilitado de responder sua mensagem. Retornarei o mais breve possível. Agradeço pelo contato, Leonardo..",
+    "file": null,
+    "fileName": null,
+    "option": null,
+    "refId": null,
+    "reaction": null
+  },
+  "error": null
+}

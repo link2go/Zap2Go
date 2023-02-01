@@ -1,0 +1,20 @@
+{
+  "messageType": "buttons",
+  "source": "Bot",
+  "message": "https://storage/teste.pdf",
+  "subject": null,
+  "caption": "Envio de botão, com arquivos, Envio de botão, com arquivos, Envio de botão, com arquivos, Envio de botão, com arquivos",
+  "address": "551999999999",
+  "name": "tiago",
+  "variables": null,
+  "options": " {\"buttons\": [ { \"id\": \"BOTAO_CAMPANHA_OK\", \"label\": \"OK\" }, \r\n                                               { \"id\": \"BOTAO_CAMPANHA_BLOQUEAR\", \"label\": \"BLOQUEAR\" }, \r\n\t\t\t\t\t\t\t\t               { \"id\": \"BOTAO_CAMPANHA_DENUNCIAR\", \"label\": \"DENUNCIAR\" } \r\n\t\t\t\t\t\t\t\t\t\t\t ]}",
+  "file": "https://storage/teste.pdf",
+  "fileName": "teste.pdf",
+  "replyMessageId": null,
+  "delayTyping": null,
+  "expires": null,
+  "template": null,
+  "contact": "551999999999",
+  "instanceKey": "226",
+  "instanceSecret": "8643"
+}

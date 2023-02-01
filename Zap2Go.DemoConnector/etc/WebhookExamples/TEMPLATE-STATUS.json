@@ -1,0 +1,25 @@
+{
+  "supplier": "XPTO",
+  "instance": {
+    "eventType": 99,
+    "key": null,
+    "content": null
+  },
+  "eventType": 4,
+  "eventDirectionType": 1,
+  "moment": "2023-01-16T18:01:14.6851655-03:00",
+  "client": {
+    "eventType": 99,
+    "address": null,
+    "name": null,
+    "photo": null,
+    "profile": null
+  },
+  "template": {
+    "eventType": 3,
+    "name": "templatexpto",
+    "log": "xxxxxxxxxxx"
+  },
+  "error": null,
+  "transactionid": "4ab1dc31-bc47-48a7-afeb-b1ec6dc91b87"
+}

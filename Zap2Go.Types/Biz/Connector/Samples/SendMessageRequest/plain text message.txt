@@ -1,0 +1,20 @@
+{
+  "messageType": "text",
+  "source": "Bot",
+  "message": "Envio de mensagem texto simples",
+  "subject": null,
+  "caption": null,
+  "address": "551999999999",
+  "name": "tiago",
+  "variables": null,
+  "options": null,
+  "file": null,
+  "fileName": null,
+  "replyMessageId": null,
+  "delayTyping": null,
+  "expires": null,
+  "template": null,
+  "contact": "551999999999",
+  "instanceKey": "226",
+  "instanceSecret": "8643"
+}
