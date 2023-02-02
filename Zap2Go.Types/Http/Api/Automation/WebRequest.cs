@@ -8,18 +8,19 @@ namespace Zap2Go.Types.Http.Api.Automation
 {
     public class WebRequest
     {
-        public Simulacao SimulacaoSiscom(BaseAutomationRequest auto)
+        public Simulacao SimulacaoSiscom(BaseAutomationRequest auto, string dt_vencimento, string tipo_simulacao)
         {
             var client = new RestClient("https://itau.smartcob.solutions/simulacao");
 
             var request = new RestRequest(Method.POST);
             request.AddHeader("api-key", "chahSo6BQuahw8sooe3iXiegMoo1iiWaaeZ5OofephohGh0IfeeH6og9quuo5Hei");
             request.AddHeader("Content-Type", "application/json");
+
             var body = new
             {
                 identificador = auto.ClientData.Document,
-                vencimento = DateTime.Now.ToString("yyyy-MM-dd"),
-                tipo_simulacao = "A_VISTA"
+                vencimento = dt_vencimento,
+                tipo_simulacao = tipo_simulacao
             };
             request.AddJsonBody(body);
 
