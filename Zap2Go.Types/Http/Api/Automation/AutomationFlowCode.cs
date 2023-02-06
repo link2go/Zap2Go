@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,7 @@ namespace Zap2Go.Types.Http.Api.Automation
                         }
                         else
                         {
+                            ButtonOption[] buttons = null;
                             StringBuilder sb = new StringBuilder();
                             int indexGrupo = 1;
                             sb.AppendLine($"Obrigado pela confirmação!");
@@ -73,11 +75,17 @@ namespace Zap2Go.Types.Http.Api.Automation
                                     sb.AppendLine("Podemos seguir com a negociação?");
                                     indexContrato++;
                                 }
+                                buttons = new ButtonOption[] { new ButtonOption { Id = $"{indexGrupo - 1}", Label = $"Grupo {indexGrupo}" } };
                                 indexGrupo++;
                             }
+                            if (simulacao.grupos.Count > 1)
+                            {
+                                messages.SendTextAndButtons(sb.ToString(), buttons);
+                            }
+                            else
 
-                            messages.SendTextAndButtons(sb.ToString()
-                            , new ButtonOption[] { new ButtonOption { Id = "SECOND_01", Label = "Sim" }, new ButtonOption { Id = "SECOND_02", Label = "Não" } });
+                                messages.SendTextAndButtons(sb.ToString()
+                                , new ButtonOption[] { new ButtonOption { Id = "SECOND_01", Label = "Sim" }, new ButtonOption { Id = "SECOND_02", Label = "Não" } });
 
                             jsonString = JsonConvert.SerializeObject(simulacao);
                         }
@@ -87,11 +95,20 @@ namespace Zap2Go.Types.Http.Api.Automation
 
                 case "THIRD":
                     var json = JsonConvert.SerializeObject(auto.Variables);
-                    JObject rss = JObject.Parse(json);
-                    messages.SendTextAndButtons($"{(string)rss["DadosSimulacao"]["first_name"]}, entendi! Vou lhe mostrar a opção à vista e contagem regressiva para retornar a sua saúde financeira. Estamos felizes por você! " +
-                        $"Segue informações da oferta solicitada: " +
-                        $"Proposta à vista de ...",
-                    new ButtonOption[] { new ButtonOption { Id = "THIRD_01", Label = "Proposta à vista" }, new ButtonOption { Id = "START_02", Label = "Sugerir outra data de vencimento" }, new ButtonOption { Id = "START_03", Label = " Ver proposta parcelada" } });
+                    //Apenas para 1 grupo:
+                    JObject jObject = JObject.Parse(json);
+                    var dadosSimulacao = JsonConvert.DeserializeObject<Simulacao>(jObject.GetValue("DadosSimulacao").ToString());
+
+                    var sb1 = new StringBuilder();
+
+                    sb1.AppendLine($"{dadosSimulacao.first_name}, Entendi! Vou lhe mostrar a opção à vista e contagem regressiva para retornar a sua saúde financeira, estamos felizes porvocê!");
+                    sb1.AppendLine($"Segue informações da oferta solicitada:");
+                    sb1.Append($"1) Proposta à vista de R${dadosSimulacao.grupos[0].opcoesPagamento[0].valor_pagar} com vencimento {DateTime.Now.ToString("dd/MM/yyyy")}. " +
+                        $"Do contrato: {dadosSimulacao.grupos[0].contratos[0].numero_contrato}. Percentual de desconto: R${dadosSimulacao.grupos[0].opcoesPagamento[0].perc_desconto}%. " +
+                        $"Valor do desconto: R${dadosSimulacao.grupos[0].opcoesPagamento[0].valor_desconto}");
+                    messages.SendTextAndButtons(sb1.ToString(), new ButtonOption[] { new ButtonOption { Id = "THIRD_01", Label = "Proposta à vista" },
+                        new ButtonOption { Id = "START_02", Label = "Sugerir outra data de vencimento" },
+                        new ButtonOption { Id = "START_03", Label = " Ver proposta parcelada" } });
                     step = ActionSetStep.SetNextStep("FOURTH");
                     break;
 
@@ -100,11 +117,43 @@ namespace Zap2Go.Types.Http.Api.Automation
                     {
                         case "THIRD_01":
                             var jsonText = JsonConvert.SerializeObject(auto.Variables);
+                            var sb2 = new StringBuilder();
+                            JObject jObject1 = JObject.Parse(jsonText);
+                            var simulacaoDados = JsonConvert.DeserializeObject<Simulacao>(jObject1.GetValue("DadosSimulacao").ToString());
 
-                            messages.SendTextAndButtons("Ótimo! Vamos resumir nossa negociacao: O meio de pagamento será BOLETO, A data para pagamento DATA_PAGAMENTO, o valor da sua dívida era: R$" +
-                                "Formalização do acordo é referente ao(s) produto(s) <PRODUTOS>. Contrato <CONTRATO>, vencido à <VENCIDO>." +
-                                "O valor a ser pago é de R$<VALOR_PAGO>, o valor do desconto foi de R$<VALOR_DESCONTO>, um percentual de <PERCENTUAL_DESCONTO>." +
-                                "Podemos confirmar seu acordo?", new ButtonOption[] { new ButtonOption { Id = "FOURTH_01", Label = "Sim" }, new ButtonOption { Id = "FOURTH_02", Label = "Não" } });
+                            if (simulacaoDados != null)
+                            {
+                                if (simulacaoDados.grupos.Count == 1)
+                                {
+                                    sb2.AppendLine($"Ótimo! Vamos resumir nossa negociação:");
+                                    sb2.Append(Environment.NewLine);
+                                    sb2.AppendLine($"O meio de pagamento será *BOLETO*.");
+                                    sb2.AppendLine($"A data para pagamento: {DateTime.Now.ToString("dd/MM/yyyy")}");
+                                    sb2.AppendLine($"O valor da sua dívida era R${simulacaoDados.grupos[0].opcoesPagamento[0].valor_total}.");
+                                    sb2.AppendLine($"A formalização do acordo é referente ao(s) produto(s):");
+                                    sb2.Append(Environment.NewLine);
+                                    if (simulacaoDados.grupos[0].contratos.Count > 0)
+                                    {
+                                        int countContrato = 1;
+                                        foreach (var contrato in simulacaoDados.grupos[0].contratos)
+                                        {
+                                            sb2.AppendLine($"*Contrato {countContrato}*");
+                                            sb2.Append(Environment.NewLine);
+                                            sb2.AppendLine($"Produto: {contrato.nome_produto}, Contrato: {contrato.numero_contrato}.");
+                                            sb2.AppendLine($"Vencido à {contrato.dias_atraso} dias.");
+                                            sb2.AppendLine($"O valor a ser pago é de:  R${contrato.valor_original}");
+
+                                            countContrato++;
+                                        }
+                                    }
+                                    sb2.AppendLine($"Podemos confirmar seu acordo?");
+                                    sb2.AppendLine(Environment.NewLine);
+                                    sb2.Append($"Escolha uma opção abaixo:");
+                                }
+                            }
+
+                            messages.SendTextAndButtons(sb2.ToString(), new ButtonOption[] { new ButtonOption { Id = "FOURTH_01", Label = "Sim" }, new ButtonOption { Id = "FOURTH_02", Label = "Não" } });
+                            step = ActionSetStep.SetNextStep("FIFTH");
                             break;
 
                         case "THIRD_02":
