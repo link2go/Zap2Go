@@ -75,5 +75,11 @@ namespace Zap2Go.DemoConnector.Controllers
             return Ok(new Types.Biz.Connector.InstanceAuthResponse());
         }
 
+        [HttpPost()]
+        [Route("InstanceDisconnect")]
+        public async Task<ActionResult<object>> Instancedisconnect([FromBody] Types.Biz.Connector.InstanceDisconnectRequest request)
+        {
+            return Ok();
+        }
     }
 }
