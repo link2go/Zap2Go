@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Automation.Actions
 {
-    public class SetStep : BaseAction
+    public class ActionSetStep : BaseAction
     {
 
         public string NextStep { get; set; }
 
         public Dictionary<string, object> Tags { get; set; }
 
-        public SetStep(Dictionary<string, object> baseTags)
+        public ActionSetStep(Dictionary<string, object> baseTags)
         {
             Tags = (baseTags ?? new Dictionary<string, object>());
         }
@@ -24,16 +24,16 @@ namespace Zap2Go.Types.Biz.Automation.Actions
         }
 
         //Retorna o proximo step setado
-        public static SetStep SetNextStep(string step, Dictionary<string, object> basetags = null)
+        public static ActionSetStep SetNextStep(string step, Dictionary<string, object> basetags = null)
         {
-            var ret = new SetStep(basetags);
+            var ret = new ActionSetStep(basetags);
             ret.NextStep = step;
             return ret;
         }
 
-        public static SetStep Restart()
+        public static ActionSetStep Restart()
         {
-            var ret = new SetStep(null);
+            var ret = new ActionSetStep(null);
             ret.NextStep = "START";
             return ret;
         }

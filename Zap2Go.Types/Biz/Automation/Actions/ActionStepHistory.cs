@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Automation
 {
-    public class StepHistory
+    public class ActionStepHistory
     {
         public DateTime FlowStart { get; set; }
         public StepOccurence[] Timeline { get; set; }

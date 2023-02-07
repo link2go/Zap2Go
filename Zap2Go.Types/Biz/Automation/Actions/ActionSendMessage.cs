@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Zap2Go.Types.Biz.Automation.Actions
 {
-    public class SendMessage : BaseAction
+    public class ActionSendMessage : BaseAction
     {
         public List<Message> Messages { get; set; } = new List<Message>();
 
@@ -28,12 +23,13 @@ namespace Zap2Go.Types.Biz.Automation.Actions
                 Buttons = buttons
             });
         }
-        public void SendTextAndOptions(string text)
+        public void SendTextAndOptions(string text, OptionsLits[] options)
         {
             Messages.Add(new Message()
             {
                 Text = text,
-                Type = Message.enumMessageType.OPTIONLIST
+                Type = Message.enumMessageType.OPTIONLIST,
+                Options = options
             });
         }
 

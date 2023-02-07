@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Automation.Actions
 {
-    public class FinishService : BaseAction
+    public class ActionFinishService : BaseAction
     {
         public string ReasonCode { get; set; }
         public int HoursIntervalNextAutomaticService { get; set; } = 24;
 
-        public static FinishService Reset()
+        public static ActionFinishService Reset()
         {
-            return new FinishService()
+            return new ActionFinishService()
             {
                 HoursIntervalNextAutomaticService = 0
             };

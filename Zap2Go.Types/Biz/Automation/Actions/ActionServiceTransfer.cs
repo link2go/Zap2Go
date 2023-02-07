@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Zap2Go.Types.Biz.Automation.Actions
 {
-    public class ChangeRetryAction : BaseAction
+    public class ActionServiceTransfer : BaseAction
     {
-        public bool CancelPrevious { get; set; }
+        public bool UserQueueTransfer { get; set; } = true;
+        public string UserCodeTo { get; set; }
+        public int? WalletId { get; set; }
 
         internal override string TypeName()
         {
-            return this.GetType().Name;
+            return GetType().Name;
         }
     }
 }

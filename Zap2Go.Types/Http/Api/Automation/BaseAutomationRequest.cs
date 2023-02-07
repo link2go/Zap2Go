@@ -17,7 +17,7 @@ namespace Zap2Go.Types.Http.Api.Automation
 
         public string CurrentStep { get; set; }
         public int TimesAtThisStep { get; set; }
-        public StepHistory FlowTimeline { get; set; }
+        public ActionStepHistory FlowTimeline { get; set; }
 
         public string ResubmitToken { get; set; }
         public Dictionary<string, object> Variables { get; set; }
