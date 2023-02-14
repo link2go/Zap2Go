@@ -8,6 +8,11 @@ namespace Zap2Go.Types.Biz.Connector
 {
     public class TemplateCreateRequest
     {
+        public string id { get; set; }
+        public string token { get; set; }
+        public string password { get; set; }
+
+
         public string ownerid { get; set; }
         public string name { get; set; }
         public string category { get; set; }

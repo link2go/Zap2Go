@@ -27,7 +27,19 @@ namespace Zap2Go.Types.Utils
                             ((Dictionary<string, object>)value).FixValueWithJsonElement(recursive);
                     }
                     else
+                    {
                         dic[key] = value.ValueFromJsonElement();
+                        if (dic[key] != null && dic[key].GetType().IsArray)
+                        {
+                            var arr = ((object[])dic[key]);
+                            for (int i = 0; i < arr.Length; i++)
+                            {
+                                if (arr[i] != null)
+                                    arr[i] = arr[i].ValueFromJsonElement();
+                            }
+                        }
+
+                    }
                 }
             }
 
@@ -38,6 +50,15 @@ namespace Zap2Go.Types.Utils
         {
             if (obj == null)
                 return null;
+
+            if (obj.GetType() == typeof(JObject))
+            {
+                var seri = Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+                var desser = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(seri);
+                desser.FixValueWithJsonElement(true);
+
+                return desser;
+            }
 
             if (obj.GetType() == typeof(System.Text.Json.JsonElement))
             {
